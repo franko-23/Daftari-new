@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: daftari-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: daftari
+      POSTGRES_PASSWORD: daftari_password
+      POSTGRES_DB: daftari_plus
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
